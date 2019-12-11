@@ -7,7 +7,7 @@ var lunghezza_array  = 10;
 // Creo i due array con elementi random
 for (i=0; i<lunghezza_array; i++) {
     // Riempio il primo array con un carattere
-    array_uno.push(generaCarattere());
+    array_uno.push(generaCarattere(97, 122));
     // Riempio ilsecondo array con un numero
     array_due.push(generaNumero(1, 10));
 }
@@ -52,13 +52,15 @@ function fusioneArraydiversi(array_uno, array_due, lunghezza_array_uno,  lunghez
 }
 
 // Funzione che genera un numero casuale
-function generaNumero(min, max) {
+function generaRAndom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 // Funzione che genera un carattere randomico compreso tra a e z utilizzando i caratteri ascii
-function generaCarattere(){
+// Il codice ASCII dalla A dalla Z è 97 a 122. Quindi, la logica sarà quella di selezionare il codice ASCII casuale da 97 a 122 e creare un carattere casuale
+function generaCarattere(min, max){
     var random_ascii;
-    random_ascii = Math.floor((Math.random() * 25) + 97);
+    random_ascii = Math.floor(Math.random() * (max - min + 1) ) + min;
+    // Trasformo il numero random nel corrispondente carattere ascii e lo restituisco
     return String.fromCharCode(random_ascii)
 }
